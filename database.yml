@@ -1,0 +1,17 @@
+
+test: &TEST
+    adapter: sqlite3
+    database: ":memory:"
+
+production:
+  adapter: sqlite3
+  database: "db/tracks.db"
+  # set this if you are storing utf8 in your mysql database to handle strings
+  # like "Réné".Not needed for sqlite. For PostgreSQL use encoding: unicode
+  # encoding: utf8
+
+cucumber:
+  <<: *TEST
+
+selenium:
+  <<: *TEST
